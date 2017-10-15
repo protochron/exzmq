@@ -13,17 +13,21 @@ defmodule Exzmq.Mixfile do
       version: @version,
       elixir: ">= 1.1.0",
       name: "Exzmq",
-      package: package,
+      package: package(),
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: [
-        {:credo, "~> 0.2", only: [:dev, :test]}
-      ],
+      deps: deps(),
       docs: [
         main: "Exzmq",
         source_ref: "v#{@version}",
         source_url: "https://github.com/zeromq/exzmq"
       ],
+    ]
+  end
+
+  defp deps do
+    [
+      {:credo, "~> 0.8", only: [:dev, :test]}
     ]
   end
 
